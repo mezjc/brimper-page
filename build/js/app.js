@@ -23,34 +23,33 @@ document.querySelector(".button").addEventListener("click", () => {
 });
 
 //--Slider--
-// let slider = document.querySelector(".slider__contenedor");
-// let sliderIndividual = document.querySelectorAll(".slider__contenido");
-// let contador = 1;
-// let width = sliderIndividual[0].clientWidth;
-// let intervalo = 3000;
+let slider = document.querySelector(".slider__contenedor");
+let sliderIndividual = document.querySelectorAll(".slider__contenido");
+let contador = 1;
+let width = sliderIndividual[0].clientWidth;
+let intervalo = 3000;
 
-// window.addEventListener("resize", function(){
-//   width=sliderIndividual[0].clientWidth;
-// });
+window.addEventListener("resize", function () {
+  width = sliderIndividual[0].clientWidth;
+});
 
-// setInterval(function(){
-//   slides();
-// },intervalo);
+setInterval(function () {
+  slides();
+}, intervalo);
 
-// function slides(){
-//   slider.style.transform = "translate("+(-width*contador)+"px)";
-//   slider.style.transition="transform.7s";
-//   contador++;
+function slides() {
+  slider.style.transform = "translate(" + -width * contador + "px)";
+  slider.style.transition = "transform.7s";
+  contador++;
 
-//   if(contador == sliderIndividual.length){
-//     setTimeout(function(){    
-//       slider.style.transform = "translate(0px)";
-//       slider.style.transition="transform.0s";
-//       contador=1
-//     },1500)
-//   }
-// }
-
+  if (contador == sliderIndividual.length) {
+    setTimeout(function () {
+      slider.style.transform = "translate(0px)";
+      slider.style.transition = "transform.0s";
+      contador = 1;
+    }, 1500);
+  }
+}
 
 var swiper = new Swiper(".mySwiper", {
   spaceBetween: 30,
@@ -68,3 +67,4 @@ var swiper = new Swiper(".mySwiper", {
     prevEl: ".swiper-button-prev",
   },
 });
+
