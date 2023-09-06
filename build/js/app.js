@@ -27,7 +27,7 @@ let slider = document.querySelector(".slider__contenedor");
 let sliderIndividual = document.querySelectorAll(".slider__contenido");
 let contador = 1;
 let width = sliderIndividual[0].clientWidth;
-let intervalo = 7000;
+let intervalo = 9000;
 
 window.addEventListener("resize", function () {
   width = sliderIndividual[0].clientWidth;
