@@ -1,6 +1,5 @@
-
-var typedElement = document.querySelector('.typed');
-if(typedElement){
+const typedElement = document.querySelector(".typed");
+if (typedElement) {
   const typed = new Typed(".typed", {
     strings: [
       '<i class="teclado">Experiencia Retail</i>',
@@ -22,53 +21,61 @@ if(typedElement){
   });
 }
 
-
 document.querySelector(".button").addEventListener("click", () => {
   document.querySelector(".navegacion").classList.toggle("show");
 });
 
 //--Slider--
-let slider = document.querySelector(".slider__contenedor");
-let sliderIndividual = document.querySelectorAll(".slider__contenido");
-let contador = 1;
-let width = sliderIndividual[0].clientWidth;
-let intervalo = 9000;
 
-window.addEventListener("resize", function () {
-  width = sliderIndividual[0].clientWidth;
-});
+const sliderElement = document.querySelector(".slider__contenedor");
 
-setInterval(function () {
-  slides();
-}, intervalo);
+if (sliderElement) {
+  let slider = document.querySelector(".slider__contenedor");
+  let sliderIndividual = document.querySelectorAll(".slider__contenido");
+  let contador = 1;
+  let width = sliderIndividual[0].clientWidth;
+  let intervalo = 9000;
 
-function slides() {
-  slider.style.transform = "translate(" + -width * contador + "px)";
-  slider.style.transition = "transform.7s";
-  contador++;
+  window.addEventListener("resize", function () {
+    width = sliderIndividual[0].clientWidth;
+  });
 
-  if (contador == sliderIndividual.length) {
-    setTimeout(function () {
-      slider.style.transform = "translate(0px)";
-      slider.style.transition = "transform.0s";
-      contador = 1;
-    }, 1500);
+  setInterval(function () {
+    slides();
+  }, intervalo);
+
+  function slides() {
+    slider.style.transform = "translate(" + -width * contador + "px)";
+    slider.style.transition = "transform.7s";
+    contador++;
+
+    if (contador == sliderIndividual.length) {
+      setTimeout(function () {
+        slider.style.transform = "translate(0px)";
+        slider.style.transition = "transform.0s";
+        contador = 1;
+      }, 1500);
+    }
   }
 }
 
-var swiper = new Swiper(".mySwiper", {
-  spaceBetween: 30,
-  centeredSlides: true,
-  autoplay: {
-    delay: 2500,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});
+const swiperElement = document.querySelector(".mySwiper");
+
+if (swiperElement) {
+  var swiper = new Swiper(".mySwiper", {
+    spaceBetween: 30,
+    centeredSlides: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+}
